@@ -1,25 +1,17 @@
 // Importa a biblioteca React, fundamental para construir componentes.
-import React, { Suspense, lazy} from 'react';
+import React from 'react';
 // Importa componentes do react-router-dom para configurar o roteamento da aplicação.
 // - Route: Define um mapeamento entre um caminho de URL e um componente.
 // - Routes: Contêiner para múltiplas definições de <Route>. Garante que apenas uma rota seja renderizada por vez.
 import { Routes, Route, Outlet } from 'react-router-dom';
-// Importa os componentes de página que serão renderizados pelas rotas;
+// Importa os componentes de página que serão renderizados pelas rotas.
+import Home from './pages/Home';
+import About from './pages/About';
+import Contact from './pages/Contact';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
-import Loading from './components/ui/Loading';
-
 // Importa o arquivo de estilos CSS específico para o componente App.
 import './App.css';
-
-
-
-// Lazy loading dos componentes de página para otimizar o carregamento inicial da aplicação.
-const Home = lazy(() => import('./pages/Home'));
-const About = lazy(() => import('./pages/About'));
-const Contact = lazy(() => import('./pages/Contact'));
-const UserProfile = lazy(() => import('./pages/UserProfile'));
-const NotFound = lazy(() => import('./pages/NotFound'));
 
 // Define um componente funcional chamado PageLayout.
 // Este componente serve como um layout comum para as páginas que compartilham o mesmo cabeçalho e rodapé.
@@ -61,28 +53,22 @@ function App() {
           <Route path="/" element={<Home />} />
 
         {/* Rota para a página "Sobre".
-            - 'path="/about"': Caminho para a página "Sobre".
-            - 'element={<About />}': Renderiza o componente <About />. */}
+ - 'path="/about"': Caminho para a página "Sobre".
+ - 'element={<About />}': Renderiza o componente <About />. */}
         <Route path="/about" element={<About />} />
 
         {/* Rota para a página "Contato".
-            - 'path="/contact"': Caminho para a página "Contato".
-            - 'element={<Contact />}': Renderiza o componente <Contact />. */}
+ - 'path="/contact"': Caminho para a página "Contato".
+ - 'element={<Contact />}': Renderiza o componente <Contact />. */}
         <Route path="/contact" element={<Contact />} />
-
-        {/* Rota para o perfil do usuário */}
-        <Route path="/user/:id" element={<UserProfile />} />
-m 
         {/* Páginas que não usam o mesmo layout serão inseridas aqui */}
-        <Route
-          path="*"
-          element={<NotFound />}  />
-          {/* Rota para páginas não encontradas, renderiza o componente NotFound. */}
         </Route>
+       
       </Routes>
     </div>
   );
 }
+
 
 // Exporta o componente App como o padrão deste módulo.
 // Isso permite que ele seja importado e utilizado em outros arquivos,

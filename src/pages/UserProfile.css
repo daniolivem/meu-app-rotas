@@ -1,0 +1,31 @@
+.UserProfile {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.UserProfile h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.UserProfile p {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.UserProfile a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+    /* gap: 20px; */
+  color: #007bff;
+  text-decoration: none;
+}
+
+.UserProfile a:hover {
+  text-decoration: underline;
+}
